@@ -1,3 +1,8 @@
+#TODO: auto completion
+function cdr { cd ~/gitr/$1; }
+function cdw { cd ~/work/$1; }
+function cdp { cd ~/projects/$1; }
+
 if [ -d ~/.ec2 ]; then
   export EC2_HOME=~/.ec2
   export PATH=$PATH:$EC2_HOME/bin
@@ -20,7 +25,7 @@ PATH=$PATH:/usr/local/Cellar/python/2.7.1/bin/:~/gitr/m17/bin
 alias mate='open -a TextMate.app'
 export EDITOR=gvim
 
-source ~/dotfiles/bash/completions/git_completion
+source ~/.bash/completions/git_completion
 
 if [ -f ~/.localrc ]; then
   source ~/.localrc
