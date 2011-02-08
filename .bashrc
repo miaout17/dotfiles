@@ -20,6 +20,8 @@ PATH=$PATH:/usr/local/Cellar/python/2.7.1/bin/:~/gitr/m17/bin
 alias mate='open -a TextMate.app'
 export EDITOR=gvim
 
+source ~/dotfiles/bash/completions/git_completion
+
 if [ -f ~/.localrc ]; then
   source ~/.localrc
 fi
