@@ -1,0 +1,65 @@
+#!/usr/bin/env ruby
+
+require 'rubygems'
+
+version = ">= 0"
+
+if ARGV.first =~ /^_(.*)_$/ and Gem::Version.correct? $1 then
+    version = $1
+      ARGV.shift
+end
+
+gem 'rails', version
+require 'rails'
+require 'rails/script_rails_loader'
+
+# Monkey Patch
+
+module Rails
+  module ScriptRailsLoader
+    def self.exec_script_rails!
+      cwd = Dir.pwd
+      return unless in_rails_application? || in_rails_application_subdirectory?
+      exec_script_rails_with_exts! if in_rails_application?
+      Dir.chdir("..") do
+        # Recurse in a chdir block: if the search fails we want to be sure
+        # the application is generated in the original working directory.
+        exec_script_rails! unless cwd == Dir.pwd
+      end
+    rescue SystemCallError
+      # could not chdir, no problem just return
+    end
+
+    def self.exec_script_rails_with_exts!
+      script = File.read(SCRIPT_RAILS)
+      script.gsub!('__FILE__', "'#{File.join(Dir.pwd, SCRIPT_RAILS)}'")
+      script = <<-EOS
+        require 'rubygems'
+        require "irb"
+
+        begin
+          gem 'wirble'
+          require 'wirble'
+          Wirble.init
+          Wirble.colorize
+        rescue LoadError
+          puts "Wirble is not loaded!!(Missing gem?)"
+        end
+
+        begin
+          gem 'wirble'
+          require 'hirb'
+          Hirb.enable
+        rescue LoadError
+          puts "Hirb is not loaded!!(Missing gem?)"
+        end
+
+        #{script}
+      EOS
+      # puts script
+      exec RUBY, "-e", script, "c" if in_rails_application?
+    end
+  end
+end
+
+load Gem.bin_path('rails', 'rails', version)

@@ -27,7 +27,7 @@ PS1="[\[\033[1;32m\]\w\[\033[0m] \[\033[0m\]\[\033[1;36m\]\$(parse_git_branch)\[
 if [[ -s /Users/ycling/.rvm/scripts/rvm ]] ; then source /Users/ycling/.rvm/scripts/rvm ; fi
 
 # Todo: extract PATH to localrc
-PATH=$PATH:/usr/local/Cellar/python/2.7.1/bin/:~/gitr/m17/bin
+PATH=$PATH:/usr/local/Cellar/python/2.7.1/bin/:~/gitr/m17/bin:~/.bin
 alias mate='open -a TextMate.app'
 export EDITOR=gvim
 

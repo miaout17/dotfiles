@@ -24,7 +24,7 @@ class DotFiles < Thor
       # Dir['*'].each do |file|
 
       # Whitelist is always more safe :)
-      %w{bashrc bash_profile bash irbrc rails-templates}
+      %w{bashrc bash_profile bash irbrc rails-templates bin}
     end
 
     def process(name)
