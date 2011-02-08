@@ -22,7 +22,9 @@ class DotFiles < Thor
   no_tasks do
     def dotfiles
       # Dir['*'].each do |file|
-      %w{bashrc bash_profile bash irbrc}
+
+      # Whitelist is always more safe :)
+      %w{bashrc bash_profile bash irbrc rails-templates}
     end
 
     def process(name)

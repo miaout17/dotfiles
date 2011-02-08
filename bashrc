@@ -3,6 +3,12 @@ function cdr { cd ~/gitr/$1; }
 function cdw { cd ~/work/$1; }
 function cdp { cd ~/projects/$1; }
 
+function railsapp {
+  appname=$1
+  shift 1
+  rails new $appname -m ~/.rails-templates/base.rb $@
+}
+
 if [ -d ~/.ec2 ]; then
   export EC2_HOME=~/.ec2
   export PATH=$PATH:$EC2_HOME/bin
