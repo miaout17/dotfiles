@@ -1,4 +1,5 @@
 if ($0 == 'irb' && ENV['RAILS_ENV']) || ($0 == 'script/rails' && Rails.env)
+
   ActiveRecord.module_eval do
     def self.show_log
       ActiveRecord::Base.logger = Logger.new(STDOUT)
@@ -9,5 +10,21 @@ if ($0 == 'irb' && ENV['RAILS_ENV']) || ($0 == 'script/rails' && Rails.env)
       nil
     end
   end
+
+  begin
+    require 'wirble'
+    Wirble.init
+    Wirble.colorize
+  rescue LoadError
+    puts "Wirble is not loaded!!"
+  end
+
+  begin
+    require 'hirb'
+    Hirb.enable
+  rescue LoadError
+    puts "Hirb is not loaded!!"
+  end
+
 end
 
