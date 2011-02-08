@@ -1,0 +1,50 @@
+#!/usr/bin/env ruby
+require "rubygems" # for Ruby 1.8
+require "thor"
+
+class MyThorCommand < Thor
+  include Thor::Actions
+
+  desc "link", "Make symbolic links for all dotfiles"
+  def link
+    dotfiles.each do |name|
+      do_link(name)
+    end
+  end
+
+  desc "link", "Make copy for all dotfiles"
+  def copy
+    dotfiles.each do |name|
+      do_copy(name)
+    end
+  end
+
+  no_tasks do
+    def dotfiles
+      puts source_paths
+      %w{.bashrc .bash_profile .irbrc}
+      # Dir['*'].each do |file|
+    end
+
+    def do_link(name)
+      run "ln -sfn #{src_dir}/#{name} ~/#{name}"
+    end
+
+    def do_copy(name)
+      source = "#{src_dir}/#{name}"
+      target = "#{ENV['HOME']}/#{name}"
+      if File.symlink?(target)
+        say_status :unlink, target
+        File.unlink(target)
+      end
+      run "cp #{src_dir}/#{name} ~/#{name}"
+    end
+
+    def src_dir
+      File.expand_path(File.dirname(__FILE__))
+    end
+  end
+end
+
+MyThorCommand.start
+
