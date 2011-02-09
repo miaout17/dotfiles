@@ -5,7 +5,7 @@ if ($0 == 'irb' && ENV['RAILS_ENV']) || (($0 == 'script/rails' || $0 =~ /richrc$
   puts ".irbrc => Rails"
 
   # ActiveRecord.module_eval do
-  def ar_log(show)
+  def ar_log(show=true)
     ActiveRecord::Base.logger = Logger.new(show ? STDOUT : nil)
     nil
   end
