@@ -21,8 +21,19 @@ rescue LoadError
   puts "Hirb is not loaded!!"
 end unless defined? Hirb
 
+IRB.conf[:PROMPT][:CUSTOM] = {
+  :PROMPT_I => "\e[1;31mIRB\e[m> ",
+  :PROMPT_N => "INDENT > ",
+  :PROMPT_S => "STRING > ",
+  :PROMPT_C => "CONT   > ",
+  :RETURN => "=> %s\n"
+}
+IRB.conf[:PROMPT_MODE] = :CUSTOM
+
 if ($0 == 'irb' && ENV['RAILS_ENV']) || (($0 == 'script/rails' || $0 =~ /richrc$/) && Rails.env)
   puts ".irbrc => Rails"
+
+  IRB.conf[:PROMPT][:CUSTOM][:PROMPT_I] = "[\e[36m#{Rails.env.capitalize}\e[0m] \e[1;31mIRB\e[m> "
 
   # ActiveRecord.module_eval do
   def ar_log(show=true)
@@ -30,14 +41,6 @@ if ($0 == 'irb' && ENV['RAILS_ENV']) || (($0 == 'script/rails' || $0 =~ /richrc$
     nil
   end
 
-  IRB.conf[:PROMPT][:CUSTOM] = {
-   :PROMPT_N => "[#{Rails.env.capitalize}]>> ",
-   :PROMPT_I => "[#{Rails.env.capitalize}]>> ",
-   :PROMPT_S => "STR> ",
-   :PROMPT_C => "???> ",
-   :RETURN => "=> %s\n"
-   }
-  IRB.conf[:PROMPT_MODE] = :CUSTOM
-  IRB.conf[:AUTO_INDENT] = true
+  # IRB.conf[:AUTO_INDENT] = true # ANSI code breaks indention!!
 
 end
