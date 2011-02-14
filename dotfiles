@@ -24,7 +24,7 @@ class DotFiles < Thor
       # Dir['*'].each do |file|
 
       # Whitelist is always more safe :)
-      %w{bashrc bash_profile bash irbrc rails-templates gemrc screenrc bin}
+      %w{bashrc bash_profile bash irbrc rails-templates gemrc screenrc bin richrc}
     end
 
     def process(name)
