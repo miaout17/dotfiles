@@ -40,6 +40,7 @@ gsub_file('spec/spec_helper.rb', '/spec/fixtures', '/spec/factories')
 
 # UJS
 #Todo: automatically extract version?
+run "rm public/javascripts/*"
 %w{jquery-1.5.min rails}.each do |name|
   source = File.join(template_path, 'javascripts', "#{name}.js")
   target = "public/javascripts/#{name}.js"
@@ -53,6 +54,4 @@ gsub_file 'config/application.rb',
 git :init
 git :add => "."
 git :commit => "-m 'initial commit'"
-
-run "rm public/javascripts/*"
 
