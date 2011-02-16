@@ -51,6 +51,8 @@ gsub_file 'config/application.rb',
   /# config.action_view.javascript_expansions.*/,
   "config.action_view.javascript_expansions[:defaults] = %w(jquery-1.5.min rails #{app_name})"
 
+copy_file(File.join(template_path, 'tasks/dev.rake'), "lib/tasks/dev.rake")
+
 git :init
 git :add => "."
 git :commit => "-m 'initial commit'"
