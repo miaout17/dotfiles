@@ -16,6 +16,14 @@ gem "rails3-generators"
 gem "factory_girl_rails"
 gem "faker"
 
+def ask_gem(name)
+  gem name if yes?("Use #{name}?")
+end
+
+ask_gem 'inherited_resources'
+ask_gem 'has_scope'
+# ask_gem 'responders'
+
 gem "rspec-rails", "~> 2.0.0", :group => [:development, :test]
 gem "autotest", :group => [:development, :test]
 gem "rcov", :group => [:development, :test]
@@ -25,6 +33,7 @@ gem "rcov", :group => [:development, :test]
 #   gem "hirb", :group => [:development, :test]
 #   gem "wirble", :group => [:development, :test]
 # end
+
 
 # run "bundle" # Or generator may stuck :(
 
