@@ -27,6 +27,8 @@ before(:setup_bundler) do
     Hirb.enable
   end
 
+  try_gem 'hirb-unicode'
+
   try_gem 'awesome_print', :require => 'ap'
 
 end
