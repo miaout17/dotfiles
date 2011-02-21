@@ -1,5 +1,14 @@
+# FIXME: this is not a good way to bypass bundler :(
+
 require 'ripl/color_result'
 require 'ripl/color_error'
+require 'wirb'
+require 'hirb-unicode'
+require 'ripl/hirb'
+
+require 'bond'
+require 'bond/readline'
+Bond::Readline.readline_setup
 
 Ripl.config[:prompt] = "\e[1;36mRIPL\e[m> "
 Ripl.config[:irbrc] = false
