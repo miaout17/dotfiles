@@ -32,10 +32,12 @@ if [[ -s ~/.rvm/scripts/rvm ]] ; then source ~/.rvm/scripts/rvm ; fi
 # Todo: extract PATH to localrc
 PATH=$PATH:/usr/local/Cellar/python/2.7.1/bin/:~/gitr/m17/bin:~/.bin
 alias mate='open -a TextMate.app'
-export EDITOR=gvim
+export EDITOR=vim
 
 source ~/.bash/completions/git_completion
 
 if [ -f ~/.localrc ]; then
   source ~/.localrc
 fi
+
+# export NODE_PATH=/usr/local/lib/node to your NODE_PATH
