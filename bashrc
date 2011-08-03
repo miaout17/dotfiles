@@ -4,6 +4,7 @@ function cdw { cd ~/work/$1; }
 function cdp { cd ~/projects/$1; }
 function rr { ripl-rails; }
 function rrc { richrc; }
+function rrr { ripl rc rails; }
 
 function railsapp {
   appname=$1
