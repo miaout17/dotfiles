@@ -1,8 +1,9 @@
 # FIXME: this is not a good way to bypass bundler :(
 
-require 'ripl/color_result'
-require 'ripl/color_error'
-require 'wirb'
+require 'ripl'
+# require 'ripl/color_result'
+# require 'ripl/color_error'
+# require 'wirb'
 require 'hirb-unicode'
 require 'ripl/hirb'
 
@@ -13,5 +14,5 @@ Bond::Readline.readline_setup
 Ripl.config[:prompt] = "\e[1;36mRIPL\e[m> "
 Ripl.config[:irbrc] = false
 
-Ripl.config[:color_result_default_schema][:string] = :green
-Ripl.config[:color_result_default_schema][:regexp] = :green
+# Ripl.config[:color_result_default_schema][:string] = :green
+# Ripl.config[:color_result_default_schema][:regexp] = :green

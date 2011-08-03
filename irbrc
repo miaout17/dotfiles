@@ -35,5 +35,10 @@ if ($0 == 'irb' && ENV['RAILS_ENV']) || (($0 == 'script/rails' || $0 =~ /richrc$
     ActiveRecord::Base.logger = Logger.new(show ? STDOUT : nil)
     nil
   end
+
+  def dm_log
+    DataMapper::Logger.new($stdout, :debug)
+    nil
+  end
   # IRB.conf[:AUTO_INDENT] = true # ANSI code breaks indention!!
 end
