@@ -45,6 +45,6 @@ fi
 
 # At least I need this on ubuntu
 
-export TERM="xterm-256color"
+export TERM="screen-256color"
 
 # export NODE_PATH=/usr/local/lib/node to your NODE_PATH
