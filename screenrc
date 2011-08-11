@@ -1,44 +1,43 @@
-bind ^t screen //telnet
-shelltitle "> |idle"
-defscrollback 1000
-activity              "activity in %n (%t) [%c:%s]~"
-bell                  "bell in %n (%t) [%c:%s]~"
-pow_detach_msg        "BYE"
-vbell_msg             " *beep* "
-hardstatus            off
 startup_message       off
+
+term xterm-256color
+
+caption always "%{= wk} %{= kB} [%n]%t @ %H %{-} %= %{= ky} %l %{-} | %{= kg} %Y-%m-%d %{-} "
+hardstatus alwayslastline " %-Lw[%{=b kR}%70L>%n%f* %t%{-}]%+Lw%-13= | %0c:%s "
+
+# defscrollback 1000
+# activity              "activity in %n (%t) [%c:%s]~"
+# pow_detach_msg        "BYE"
+# hardstatus            off
 #  hardstatus lastline '%{= WK}%-Lw%{BW}%50L>%n%f* %t%{-}%+Lw%-25=%{MR}<%{.W} %H %{.R}>%{KM} %m%d%D%0C %{WK}'
 #  caption always '%{= WK}%-Lw%{BW}%50L>%n%f* %t%{-}%+Lw%-25=%{MR}<%{.W} %H %{.R}>%{KM} %m%d%D%0C %{WK}'
 #  caption always '%{= WK}%-Lw%{BW}%50L>%n%f* %t%{-}%+Lw%-30=%{MR}<%{.W} %H %{.R}>%{KM} %m%d%C %{WK}'
-caption always "%{= wk} %{= kB} [%n]%t @ %H %{-} %= %{= ky} %l %{-} | %{= kg} %Y-%m-%d %{-} "
-hardstatus alwayslastline " %-Lw[%{=b kR}%70L>%n%f* %t%{-}]%+Lw%-13= | %0c:%s "
-#hardstatus alwayslastline '%{gk}[ %{G}%H %{g}][%= %{wk}%?%-Lw%?%{=b kR}[%{W}%n%f %t%?(%u)%?%{=b kR}]%{= kw}%?%+Lw%?%?%= %{g}][%{Y}%l%{g}]%{=b C}[ %D %m/%d %C%a ]%{W}'
+# hardstatus alwayslastline '%{gk}[ %{G}%H %{g}][%= %{wk}%?%-Lw%?%{=b kR}[%{W}%n%f %t%?(%u)%?%{=b kR}]%{= kw}%?%+Lw%?%?%= %{g}][%{Y}%l%{g}]%{=b C}[ %D %m/%d %C%a ]%{W}'
 
 #  idle 600  lockscreen
 
-defutf8 on
-defencoding UTF-8
+# defutf8 on
+# defencoding UTF-8
 #encoding Big5 UTF-8
-bind b encoding Big5 UTF-8
-bind u encoding UTF-8 UTF-8
-#cjkwidth
-term xterm-256color
+# bind b encoding Big5 UTF-8
+# bind u encoding UTF-8 UTF-8
+
 # Turns off alternate screen switching in xterms,
 # so that text in screen will go into the xterm's scrollback buffer:
-termcapinfo xterm* ti@:te@
-altscreen off
+# termcapinfo xterm* ti@:te@
+# altscreen off
 # Enable 256 color terminal
-attrcolor b ".I"
-termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
-termcapinfo xterm*|rxvt*|kterm*|Eterm* hs:ts=\E]0;:fs=\007:ds=\E]0;\007 #讓status上title，光terminfo似乎不會生效
-defbce "on"
+# attrcolor b ".I"
+# termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+# termcapinfo xterm*|rxvt*|kterm*|Eterm* hs:ts=\E]0;:fs=\007:ds=\E]0;\007 #讓status上title，光terminfo似乎不會生效
+# defbce "on"
 
 # Split for rails development
-split
-screen
-resize 15
-focus
-screen
+# split
+# screen
+# resize 15
+# focus
+# screen
 
 # Keybindings
 # register n "^aS^a:focus down^M^ac^a:resize 10^M"
