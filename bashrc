@@ -2,8 +2,10 @@
 function cdr { cd ~/gitr/$1; }
 function cdw { cd ~/work/$1; }
 function cdp { cd ~/projects/$1; }
-function rr { ripl-rails; }
 function rrc { richrc; }
+
+# ripl
+function rr { ripl rc; }
 function rrr { ripl rc rails; }
 
 function railsapp {

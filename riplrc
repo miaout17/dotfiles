@@ -16,3 +16,14 @@ Ripl.config[:irbrc] = false
 
 # Ripl.config[:color_result_default_schema][:string] = :green
 # Ripl.config[:color_result_default_schema][:regexp] = :green
+#
+def ar_log(show=true)
+  ActiveRecord::Base.logger = Logger.new(show ? STDOUT : nil)
+  nil
+end
+
+def dm_log
+  DataMapper::Logger.new($stdout, :debug)
+  nil
+end
+
