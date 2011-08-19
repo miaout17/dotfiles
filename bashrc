@@ -48,3 +48,17 @@ fi
 export TERM="screen-256color"
 
 # export NODE_PATH=/usr/local/lib/node to your NODE_PATH
+
+# C-a, C-a to attach or create tmux session
+bind '"\C-a\C-a"':"\"tmux attach || tmux new\C-m\""
+
+# TODO: MOVE ME SOMEWHERE ELSE!!!!
+# _complete_c()
+# {
+#   COMPREPLY=
+# }
+#
+function c { cd ~/proj/$1; }
+#
+# complete -F _complete_c c
+#
