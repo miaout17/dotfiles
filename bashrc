@@ -49,8 +49,8 @@ export TERM="screen-256color"
 
 # export NODE_PATH=/usr/local/lib/node to your NODE_PATH
 
-# C-a, C-a to attach or create tmux session
-bind '"\C-a\C-a"':"\"tmux attach || tmux new\C-m\""
+# C-b, C-b to attach or create tmux session
+bind '"\C-b\C-b"':"\"tmux attach || tmux new\C-m\""
 
 # TODO: MOVE ME SOMEWHERE ELSE!!!!
 # _complete_c()
@@ -62,3 +62,5 @@ function c { cd ~/proj/$1; }
 #
 # complete -F _complete_c c
 #
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
