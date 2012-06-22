@@ -43,9 +43,7 @@ if [ -f ~/.localrc ]; then
   source ~/.localrc
 fi
 
-# At least I need this on ubuntu
-
-export TERM="screen-256color"
+export TERM="xterm-256color"
 
 # export NODE_PATH=/usr/local/lib/node to your NODE_PATH
 
@@ -64,3 +62,4 @@ function c { cd ~/proj/$1; }
 #
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+export PATH=$PATH:~/bin
