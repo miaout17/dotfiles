@@ -29,7 +29,8 @@ IRB.conf[:PROMPT][:CUSTOM] = {
 IRB.conf[:PROMPT_MODE] = :CUSTOM
 
 if ($0 == 'irb' && ENV['RAILS_ENV']) || (($0 == 'script/rails' || $0 =~ /richrc$/) && Rails.env)
-  IRB.conf[:PROMPT][:CUSTOM][:PROMPT_I] = "[\e[36m#{Rails.env.capitalize}\e[0m] \e[1;31mIRB\e[m> "
+  # IRB.conf[:PROMPT][:CUSTOM][:PROMPT_I] = "[\e[36m#{Rails.env.capitalize}\e[0m] \e[1;31mIRB\e[m> "
+  IRB.conf[:PROMPT][:CUSTOM][:PROMPT_I] = "[#{Rails.env.capitalize}] IRB> "
 
   def ar_log(show=true)
     ActiveRecord::Base.logger = Logger.new(show ? STDOUT : nil)
