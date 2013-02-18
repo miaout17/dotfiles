@@ -6,13 +6,6 @@ vim/bundle/coffee-script:
   squashed: true
   type: git
   url: https://github.com/kchmck/vim-coffee-script.git
-vim/bundle/elixir: 
-  branch: master
-  remote: braid/bundle/elixir
-  revision: e97cf71a9b47d8bd14a2d6797ece2f9162d7df93
-  squashed: true
-  type: git
-  url: git://github.com/miaout17/vim-elixir.git
 vim/bundle/nerdtree: 
   branch: master
   remote: master/braid/bundle/nerdtree
