@@ -28,8 +28,8 @@ set listchars=tab:>-,trail:.
 set list
 
 " Key bindings
-nmap <C-P> :NERDTreeToggle<CR>
-nmap <silent> <C-N> :silent noh<CR>
+nmap <C-N> :NERDTreeToggle<CR>
+nmap <silent> <C-C> :silent noh<CR>
 " Delete trailing spaces
 nmap <C-X> :%s/\s\+$//e<CR>
 
