@@ -12,7 +12,7 @@ function slink { # src dst
   ln -s -f $src $dst
 }
 
-for name in bashrc bash_profile bash irbrc rails-templates gemrc screenrc richrc riplrc tmux.conf vim
+for name in bashrc bash_profile bash irbrc gemrc screenrc richrc riplrc tmux.conf vim
 do
   slink "$DIR/$name" "$HOME/.$name"
 done
