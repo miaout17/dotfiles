@@ -38,3 +38,6 @@ nmap <C-X> :%s/\s\+$//e<CR>
 
 set nobackup
 set noswapfile
+
+let g:ctrlp_working_path_mode = ''
+

@@ -67,4 +67,6 @@ function c { cd ~/proj/$1; }
 PATH=~/bin:~/.bin:/usr/local/bin:/usr/local/sbin:~/.bin:$PATH:/usr/local/Cellar/python/2.7.1/bin
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 PATH=~/Library/Haskell/bin/:$PATH
+PATH=$PATH:/usr/local/share/npm/bin
+
 
