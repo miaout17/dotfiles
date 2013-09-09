@@ -69,16 +69,30 @@ esac
 PATH=/usr/local/bin:/usr/local/sbin:$PATH
 
 if which brew >/dev/null; then
+
   if [ -f $(brew --prefix)/etc/bash_completion ]; then
     . $(brew --prefix)/etc/bash_completion
   fi
+
   Z_SCRIPT_PATH="`brew --prefix`/etc/profile.d/z.sh"
-  if [ -x $Z_SCRIPT_PATH ]; then
-    . $Z_SCRIPT_PATH
+  if [ -f $Z_SCRIPT_PATH ]; then
+    . `brew --prefix`/etc/profile.d/z.sh
   fi
 fi
 
 if [ -a ~/.localrc ]; then
   source ~/.localrc
 fi
+
+export JAVA_HOME=/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home
+export PATH=$PATH:/usr/local/share/npm/bin
+# export PATH=/Library/Frameworks/Python.framework/Versions/3.3/bin:$PATH
+
+# History control
+# export HISTCONTROL=ignoredups:erasedups  # no duplicate entries
+# export HISTSIZE=100000                   # big big history
+# export HISTFILESIZE=100000               # big big history
+# shopt -s histappend                      # append to history, don't overwrite it
+# export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND" # Save and reload the history after each command finishes
+
 
