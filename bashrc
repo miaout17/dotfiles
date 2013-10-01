@@ -84,8 +84,15 @@ if [ -a ~/.localrc ]; then
   source ~/.localrc
 fi
 
-export JAVA_HOME=/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home
-export PATH=$PATH:/usr/local/share/npm/bin
+function append_path() {
+  if [ -d $1 ] ; then
+    # echo "Appending path $1"
+    PATH="$PATH:$1"
+  fi
+}
+
+append_path '/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home'
+append_path '/usr/local/share/npm/bin'
 # export PATH=/Library/Frameworks/Python.framework/Versions/3.3/bin:$PATH
 
 # History control
