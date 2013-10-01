@@ -93,6 +93,7 @@ function append_path() {
 
 append_path '/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home'
 append_path '/usr/local/share/npm/bin'
+append_path '/Users/yc_ling/adt-bundle-mac-x86_64-20130219/sdk/platform-tools/'
 # export PATH=/Library/Frameworks/Python.framework/Versions/3.3/bin:$PATH
 
 # History control
