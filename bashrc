@@ -42,12 +42,23 @@ export EDITOR=vim
 # export NODE_PATH=/usr/local/lib/node to your NODE_PATH
 
 case "$TERM" in
-xterm*|rxvt*)
+xterm*|rxvt*|screen*)
   # C-b, C-b to attach or create tmux session
   bind '"\C-b\C-b"':"\"tmux attach || tmux new\C-m\""
+
+  if which brew >/dev/null; then
+    if [ -f $(brew --prefix)/etc/bash_completion ]; then
+      . $(brew --prefix)/etc/bash_completion
+    fi
+
+    Z_SCRIPT_PATH="`brew --prefix`/etc/profile.d/z.sh"
+    if [ -f $Z_SCRIPT_PATH ]; then
+      . `brew --prefix`/etc/profile.d/z.sh
+    fi
+  fi
+
   ;;
 esac
-
 
 # TODO: MOVE ME SOMEWHERE ELSE!!!!
 # _complete_c()
@@ -67,18 +78,6 @@ esac
 # PATH=$PATH:/usr/local/share/npm/bin
 
 PATH=/usr/local/bin:/usr/local/sbin:$PATH
-
-if which brew >/dev/null; then
-
-  if [ -f $(brew --prefix)/etc/bash_completion ]; then
-    . $(brew --prefix)/etc/bash_completion
-  fi
-
-  Z_SCRIPT_PATH="`brew --prefix`/etc/profile.d/z.sh"
-  if [ -f $Z_SCRIPT_PATH ]; then
-    . `brew --prefix`/etc/profile.d/z.sh
-  fi
-fi
 
 if [ -a ~/.localrc ]; then
   source ~/.localrc
