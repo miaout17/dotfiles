@@ -48,6 +48,13 @@ vim/bundle/vim-easymotion:
   squashed: true
   type: git
   url: https://github.com/Lokaltog/vim-easymotion.git
+vim/bundle/vim-golang: 
+  branch: master
+  remote: master/braid/vim/bundle/vim-golang
+  revision: 832d64e5a813511ed52217aa24f0255c49671bab
+  squashed: true
+  type: git
+  url: https://github.com/jnwhiteh/vim-golang.git
 vim/bundle/vim-ls: 
   branch: master
   remote: master/braid/vim/bundle/vim-ls
