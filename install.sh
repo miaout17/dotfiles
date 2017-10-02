@@ -9,7 +9,7 @@ function slink { # src dst
   # TODO: backup or ...
   echo "Making symbolic link: $src -> $dst"
   rm -rf $dst
-  ln -s -f $src $dst
+  ln -s $src $dst
 }
 
 for name in bashrc bash_profile bash irbrc gemrc screenrc richrc riplrc tmux.conf vim
